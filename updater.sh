@@ -127,5 +127,6 @@ Update URL: $url
 Current IP: $CURRENT_IP"
 	else
 		err "YDNS host update for $url failed."
+        exit 1
 	fi
 done
