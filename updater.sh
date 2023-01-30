@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.	If not, see <http://www.gnu.org/licenses/>.
 
-readonly VERSION='0.1'
+readonly VERSION='0.1.0'
 
 function usage() {
 	echo 'YDNS Updater'
@@ -117,7 +117,7 @@ if [[ "$CURRENT_IP" == "$LAST_IP" ]]; then
 	exit 0
 fi
 
-# IP has chenged – update remote host and local file
+# IP has changed – update remote host and local file
 echo "$CURRENT_IP" > "$LAST_IP_FILE"
 
 for url in "${update_urls[@]}"; do
