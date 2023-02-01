@@ -49,7 +49,6 @@ function msg() {
 function update_ip() {
 	[[ "$1" ]] || return 6
 	curl --fail --silent "$1" >/dev/null
-	return $?
 }
 
 function version() {
@@ -87,6 +86,7 @@ done
 if (( ${#update_urls[@]} == 0 )); then
 	# Try to get URLs from config file
 	update_file="${XDG_CONFIG_HOME:-$HOME/.config}/ydns/update_urls"
+
 	if [[ -f "$update_file" ]]; then
 		IFS=$'\n' read -d '' -r -a update_urls < "$update_file"
 	else
@@ -117,7 +117,7 @@ if [[ "$CURRENT_IP" == "$LAST_IP" ]]; then
 	exit 0
 fi
 
-# IP has changed – update remote host and local file
+# IP has changed, update local file and remote host
 echo "$CURRENT_IP" > "$LAST_IP_FILE"
 
 for url in "${update_urls[@]}"; do
