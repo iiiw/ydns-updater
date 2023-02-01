@@ -20,11 +20,11 @@ sudo chmod +x /usr/local/bin/ydns-updater.sh # make the script executable
 The script looks for update URLs
 
 1. on the command line, if option `-u URL [-u …]` is present
-2. in the file `$XDG_CONFIG_HOME/ydns/update_urls` (`$XDG_CONFIG_HOME` falling back to `$HOME/.config`), expecting to find one URL per line
+2. or in the file `$XDG_CONFIG_HOME/ydns/update_urls` (`$XDG_CONFIG_HOME` falling back to `$HOME/.config`), expecting to find one URL per line
 
 ## Crontab Setup
 
-To run the script every 15 minutes set up a cronjob executing `crontab -e` (for system cronjob, prefix with `sudo`):
+To run the script every 15 minutes set up a cronjob executing `crontab -e`:
 
 ```bash
 */15 * * * * /path/to/script/updater.sh > /dev/null
