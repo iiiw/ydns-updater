@@ -33,7 +33,7 @@ function usage() {
 }
 
 if ! command -v curl >/dev/null 2>&1; then
-	err 'Missing dependency cURL. Aborting.'
+	echo 'Missing dependency cURL. Aborting.' >&2
 	exit 1
 fi
 
